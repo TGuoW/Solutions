@@ -43,11 +43,10 @@
 		/*flex-direction: column;*/
 		flex-wrap: wrap;
   		background: #fff;
-  		margin-top: 150px;
+  		margin-top: 120px;
   		opacity: 1 !important;
   		border-radius: 10px;
-  		/*height: 247px;*/
-  		width: 600px;
+  		width: 800px;
 	}
     
     .row{
@@ -161,7 +160,7 @@
 
 	function nextQuote(){
 	  colorPos = (colorPos+1)%colors.length;
-	  newQuote = quotes[Math.floor(Math.random() * (quotes.length))];
+	  newQuote = quotes[Math.floor(Math.random()*(quotes.length))];
 	  $("#authorName").fadeOut(function(){
 	  	$(this).css('color', colors[colorPos]).html(newQuote[1]).fadeIn();
 	  });
