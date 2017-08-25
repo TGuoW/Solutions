@@ -23,11 +23,19 @@
         opacity: 0.85;
 	}
     .button1 {
+    	text-align: center;
+		color: #fff;
+		line-height: 40px;
+		width: 80px;
       	margin: 0 0 0 60px;
   	}
 
 	.button2 {
-  		margin: 0 0 20px -210px;
+		text-align: center;
+		color: #fff;
+		line-height: 40px;
+		width: 90px;
+  		margin: 0 0 20px -300px;
 	}
 
 	.button3 {
@@ -91,8 +99,8 @@
     <div class="author row"><span id="authorName"></span></div>
     <div class="row">
       <!-- <div> -->
-     	<div class="button1 button"></div>
-      	<div class="button2 button"></div>
+     	<div class="button1 button" id="weibo">weibo</div>
+      	<div class="button2 button" id="twitter">twitter</div>
       <!-- </div> -->
       <div class="button3 button" id="nextQuote">next quote</div>
     </div>
@@ -101,7 +109,7 @@
   <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/jquery-color/2.1.2/jquery.color.js"></script>
   <script type="text/javascript">
-    var colors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+    var colors = ['#16a085', '#a3d5d3', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
     var quotes = [
 	['The creation of a single world comes from a huge number of fragments and chaos.', '- Hayao Miyazaki'], 
 	['In spite of everything, I still believe people are really good at heart.', '- Anne Frank'],
@@ -157,6 +165,12 @@
     var colorPos = 0;
     var newQuote = "";
     $("#nextQuote").click(nextQuote);
+    $("#twitter").click(function(){
+    	 window.open('http://twitter.com/intent/tweet?text=' + encodeURIComponent(newQuote[0] + ' by ' + newQuote[1]));
+    })
+    $("#weibo").click(function(){
+    	 window.open('http://v.t.sina.com.cn/share/share.php?title=' + encodeURIComponent(newQuote[0] + ' by ' + newQuote[1]));
+    })
 
 	function nextQuote(){
 	  colorPos = (colorPos+1)%colors.length;
